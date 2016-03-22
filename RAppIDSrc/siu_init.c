@@ -22,9 +22,9 @@
  *
  * Part Errata Fixes      : none
  *
- * Project Last Save Date : 23-Mar-2016 00:03:25
+ * Project Last Save Date : 23-Mar-2016 00:09:42
  *
- * Created on Date        : 23-Mar-2016 00:03:25
+ * Created on Date        : 23-Mar-2016 00:09:42
  *
  * Brief Description      : This File Contains Pads, external Interrupts and
  *                          Wakeups configuration
@@ -993,8 +993,8 @@ void siu_portE_init_fnc(void)
     /* ----------------------------------------------------------- */
     /*      Pad Configuration Register PCR[68]  eMIOS_0_20_SCK_1_PE4 (93) */
     /* ----------------------------------------------------------- */
-       SIU.PCR[68].R = 0x0A01;
-             /*	Selected Function : SCK_1 O          */
+       SIU.PCR[68].R = 0x0201;
+             /*	Selected Function : PE4 O          */
              /*	Output Buffers : Enabled          */
              /*	Input Buffers : Disabled          */
              /*	Output Drain : Disabled           */
@@ -1006,9 +1006,9 @@ void siu_portE_init_fnc(void)
     /* ----------------------------------------------------------- */
     /*      Pad Configuration Register PCR[69]  eMIOS_0_21_PCS_1.0_ADC_MA2_PE5 (94) */
     /* ----------------------------------------------------------- */
-       SIU.PCR[69].R = 0x0001;
-             /*	Selected Function : PE5          */
-             /*	Output Buffers : Disabled         */
+       SIU.PCR[69].R = 0x0201;
+             /*	Selected Function : PE5 O          */
+             /*	Output Buffers : Enabled          */
              /*	Input Buffers : Disabled          */
              /*	Output Drain : Disabled           */
              /*	Slew Rate Control : Minimum       */
@@ -1019,9 +1019,9 @@ void siu_portE_init_fnc(void)
     /* ----------------------------------------------------------- */
     /*      Pad Configuration Register PCR[70]  eMIOS_0_22_PCS_0.3_ADC_MA1_PE6 (95) */
     /* ----------------------------------------------------------- */
-       SIU.PCR[70].R = 0x0001;
-             /*	Selected Function : PE6          */
-             /*	Output Buffers : Disabled         */
+       SIU.PCR[70].R = 0x0201;
+             /*	Selected Function : PE6 O          */
+             /*	Output Buffers : Enabled          */
              /*	Input Buffers : Disabled          */
              /*	Output Drain : Disabled           */
              /*	Slew Rate Control : Minimum       */
@@ -1032,9 +1032,9 @@ void siu_portE_init_fnc(void)
     /* ----------------------------------------------------------- */
     /*      Pad Configuration Register PCR[71]  eMIOS_0_23_PCS_0.2_ADC_MA0_PE7 (96) */
     /* ----------------------------------------------------------- */
-       SIU.PCR[71].R = 0x0001;
-             /*	Selected Function : PE7          */
-             /*	Output Buffers : Disabled         */
+       SIU.PCR[71].R = 0x0201;
+             /*	Selected Function : PE7 O          */
+             /*	Output Buffers : Enabled          */
              /*	Input Buffers : Disabled          */
              /*	Output Drain : Disabled           */
              /*	Slew Rate Control : Minimum       */
@@ -1537,8 +1537,8 @@ void siu_psmi_init_fnc(void)
 /*-----------------------------------------------------------*/
 /* Pad Selection for Multiplex Input Register PSMI[7]      */
 /*-----------------------------------------------------------*/
-               SIU.PSMI[7].R = 0x01;
-                /*Function Pad Selected DSPI1_SSCK :- PCR68*/
+               SIU.PSMI[7].R = 0x00;
+                /*Function Pad Selected DSPI1_SSCK :- PCR34*/
 
 /*-----------------------------------------------------------*/
 /* Pad Selection for Multiplex Input Register PSMI[8]      */
