@@ -9,7 +9,7 @@
  * 
  * COPYRIGHT   :(c) 2009, Freescale & STMicroelectronics 
  * 
- * VERSION     : 01.02 
+ * VERSION     : 01.00 
  * DATE        : 08 MAY 2009 
  * AUTHOR      : b04629 
  * HISTORY     : Original source taken from jdp_0100.h. 

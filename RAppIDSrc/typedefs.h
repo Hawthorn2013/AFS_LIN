@@ -1,38 +1,26 @@
 /**************************************************************************
- * FILE NAME: $RCSfile: typedefs.h,v $       COPYRIGHT (c) Freescale 2005 *
+ * FILE NAME: $RCSfile: typedefs.h,v $       COPYRIGHT (c) Freescale 2007 *
  * DESCRIPTION:                                     All Rights Reserved   *
- * This file defines all of the data types for the Motorola header file.  *
+ * This file defines all of the data types for the JDP header file.       *
  *========================================================================*
- * ORIGINAL AUTHOR: Jeff Loeliger (r12110)                                *
+ * ORIGINAL AUTHOR: b04629                                                *
  * $Log: typedefs.h,v $
- * Revision 1.1  2010/07/21 13:28:05  dmihail1
- * Add to DataBase: 'runtime' folder
- * See: MTWX40737, MTWX40738, MTWX40743, MTWX42016
+ * Revision 1.1  2010/01/25 09:19:19  shridharp
+ * Activity: Bolero 512K Development
+ * Task: Unplanned
+ * Description: Added Release resources
  *
- * Revision 1.7  2007/05/02 22:46:00  dfreeland
- * Use latest web version
+ * Revision 1.1  2010/01/05 04:40:52  arifm
+ * Draft Version
  *
- * Revision 1.4  2006/03/27 09:59:34  r47354
- * change __GHS__ to __ghs__. As per bug 13213
+ * Revision 1.1  2008/02/14 07:00:35  abhisheka
+ * Created seperate folder for Include
+ * Added the Header Files for Monaco and Bolero
  *
- * Revision 1.3  2005/02/22 13:09:38  r47354
- * Fix copyright date.
+ * Revision 1.1  2007/12/04 15:52:03  b04629
+ * Generated from MPC5516 typedefs.f Revision 1.2
  *
- * Revision 1.2  2004/11/17 12:43:12  r12110
- * -Removed #ifdef DEBUG from around initial comment block.
- *
- * Revision 1.1  2004/11/17 12:38:48  r12110
- * -Initial version checked into CVS.
- * -Updated copyright from Motorola to Freescale.
- *
- *........................................................................*
- * 0.1   J. Loeliger  17/Feb/03    Initial version of file.               *
- * 0.2   J. Loeliger  06/Mar/03    Added DCC support.                     *
- * 0.3   J. Loeliger  07/May/03    Change to fully use ISO data types.    *
- * 0.4   J. Loeliger  17/Jun/03    Change name to motint.h and merge      *
- *                                  MPC5500 and MAC7100 files.            *
- * 0.5   J. Loeliger  04/Nov/03    Changed name to typedefs.h.            *
- * 0.6   J. Loeliger  09/May/04    Changed to support GHS and GCC.        *
+ *                                                                        *
  **************************************************************************/
 
 #ifndef _TYPEDEFS_H_
