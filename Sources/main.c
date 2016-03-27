@@ -10,6 +10,7 @@ int main(void) {
 		i++;
 		Delay_ms(500);
 		SIU .GPDO[68].B.PDO = ~SIU .GPDO[68].B.PDO;
+		Test_LIN();
 	}
 }
 

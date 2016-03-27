@@ -10,6 +10,7 @@
 
 #define LIN_ID_TEST (3)
 
+void Test_LIN(void);
 void Delay_us(uint32_t us);
 void Delay_ms(uint32_t ms);
 
