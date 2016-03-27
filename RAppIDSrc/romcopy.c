@@ -24,9 +24,9 @@
  *
  * Part Errata Fixes      : none
  *
- * Project Last Save Date : 03-Oct-2008 08:24:54
  *
- * Created on Date        : 05-Nov-2008 14:57:10
+ *
+ *
  * 
  * @Brief Description     : It copies data from ROM to RAM
  *
