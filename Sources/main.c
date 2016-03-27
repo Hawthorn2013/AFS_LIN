@@ -9,7 +9,7 @@ int main(void) {
 	for (;;) {
 		i++;
 		Delay_ms(500);
-		SIU .GPDO[68].B.PDO = ~SIU .GPDO[68].B.PDO;
+		LED1 = ~LED1;
 		Test_LIN();
 	}
 }
