@@ -8,6 +8,12 @@
 #ifndef BSP_H_
 #define BSP_H_
 
+//Define LED
+#define LED1 (SIU .GPDO[68].B.PDO)
+#define LED2 (SIU .GPDO[69].B.PDO)
+#define LED3 (SIU .GPDO[70].B.PDO)
+#define LED4 (SIU .GPDO[71].B.PDO)
+
 #define LIN_ID_TEST (3)
 
 void Test_LIN(void);
