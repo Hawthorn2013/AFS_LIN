@@ -7,10 +7,12 @@ int main(void) {
 	sys_init_fnc();
 	/* Loop forever */
 	for (;;) {
+		uint8_t data[8] = {0xAA, 0xAA, 0xAA, 0xAA, 0xFF, 0x55, 0x10, 0xFF};
 		i++;
 		Delay_ms(500);
 		LED1 = ~LED1;
-		Test_LIN();
+		LIN_TX(0x35, sizeof(data), data);
+
 	}
 }
 
