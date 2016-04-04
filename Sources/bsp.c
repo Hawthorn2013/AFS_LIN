@@ -9,6 +9,11 @@
 #include "../RAppIDSrc/sys_init.h"
 #include "bsp.h"
 
+volatile int LINFLEX_0_INTC_TXI_triggered = 0;
+volatile int LINFLEX_0_INTC_RXI_triggered = 0;
+volatile int LINFLEX_0_INTC_ERR_triggered = 0;
+volatile uint32_t LINFLEX_0_SR = 0x00000000;
+
 void Test_LIN(void) {
 	LINFLEX_0 .BDRM.R = 0xFF1055FF; /* Load buffer data most significant bytes */
 	LINFLEX_0 .BDRL.R = 0xAAAAAAAA; /* Load buffer data least significant bytes */
@@ -63,5 +68,15 @@ int LIN_TX(int id, int len, const uint8_t *data) {
 	LINFLEX_0 .BIDR.B.DIR = 1;
 	LINFLEX_0 .BIDR.B.ID = id;
 	LINFLEX_0 .LINCR2.B.HTRQ = 1;
-	return 0;
+	LINFLEX_0_INTC_TXI_triggered = 0;
+	LINFLEX_0_INTC_ERR_triggered = 0;
+	while (!(LINFLEX_0_INTC_TXI_triggered | LINFLEX_0_INTC_ERR_triggered))
+		;
+	if (LINFLEX_0_INTC_TXI_triggered) {
+		LINFLEX_0_INTC_TXI_triggered = 0;
+		return 0;
+	} else if (LINFLEX_0_INTC_ERR_triggered) {
+		LINFLEX_0_INTC_ERR_triggered = 0;
+		return 3;
+	}
 }
