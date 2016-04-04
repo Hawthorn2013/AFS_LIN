@@ -312,7 +312,7 @@ void linflex0_init_fnc (void)
 /*        LIN interrupt enable register  (LINFLEX_0_LINIER)        */
 /*----------------------------------------------------------- */
 
-    LINFLEX_0.LINIER.R = 0x0007;
+    LINFLEX_0.LINIER.R = 0xF987;
 
         /* Header Received Interrupt: Enabled    */
         /* Data Transmitted Interrupt: Enabled    */
@@ -321,13 +321,13 @@ void linflex0_init_fnc (void)
         /* Data Buffer Full Interrupt: Disabled    */
         /* Wakeup Interrupt: Disabled    */
         /* LIN State Interrupt: Disabled    */
-        /* Buffer Overrun Error Interrupt: Disabled    */
-        /* Frame Error Interrupt: Disabled    */
-        /* Header Error Interrupt: Disabled    */
-        /* Checksum Error Interrupt: Disabled    */
-        /* Bit Error Interrupt: Disabled    */
-        /* Output Compare Interrupt: Disabled    */
-        /* Stuck at Zero Interrupt: Disabled    */
+        /* Buffer Overrun Error Interrupt: Enabled    */
+        /* Frame Error Interrupt: Enabled    */
+        /* Header Error Interrupt: Enabled    */
+        /* Checksum Error Interrupt: Enabled    */
+        /* Bit Error Interrupt: Enabled    */
+        /* Output Compare Interrupt: Enabled    */
+        /* Stuck at Zero Interrupt: Enabled    */
 
 /*----------------------------------------------------------- */
 /*        LIN control register 1   (LINFLEX_0_LINCR1)        */

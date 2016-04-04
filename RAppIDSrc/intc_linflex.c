@@ -49,10 +49,26 @@
 
 /************************* INTERRUPT HANDLERS ************************/
 
-void INTC_UART0_RX (void)
+void INTC_LINFLEX_0_RXI (void)
 {
     LINFLEX_0.LINSR.R = 0xF2FF;
     LINFLEX_0.UARTSR.R = 0x00000004;
+
+}
+
+
+void INTC_LINFLEX_0_TXI (void)
+{
+    LINFLEX_0.LINSR.R = 0xF2FF;
+    LINFLEX_0.UARTSR.R = 0x00000002;
+
+}
+
+
+void INTC_LINFLEX_0_ERR (void)
+{
+    LINFLEX_0.LINESR.R = 0xFF81;
+    LINFLEX_0.UARTSR.R = 0xFFE7;
 
 }
 

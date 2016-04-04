@@ -40,7 +40,9 @@
 
 /**********************  Function Prototype here *************************/
 
-void INTC_UART0_RX(void);
+void INTC_LINFLEX_0_RXI(void);
+void INTC_LINFLEX_0_TXI(void);
+void INTC_LINFLEX_0_ERR(void);
 void INTC_UART2_RX(void);
 
 

@@ -367,14 +367,14 @@ void INTC_InitINTCInterrupts (void)
 /* -------------------------------------------------------------------*/
 /*	           Priority Set Register for interrupt vector 80          */
 /* -------------------------------------------------------------------*/
-    INTC.PSR[80].R = 0x00;
-    /* LINFlex_0_TXI Priority is: 0        */
+    INTC.PSR[80].R = 0x04;
+    /* LINFlex_0_TXI Priority is: 4        */
 
 /* -------------------------------------------------------------------*/
 /*	           Priority Set Register for interrupt vector 81          */
 /* -------------------------------------------------------------------*/
-    INTC.PSR[81].R = 0x00;
-    /* LINFlex_0_ERR Priority is: 0        */
+    INTC.PSR[81].R = 0x05;
+    /* LINFlex_0_ERR Priority is: 5        */
 
 /* -------------------------------------------------------------------*/
 /*	           Priority Set Register for interrupt vector 85          */
