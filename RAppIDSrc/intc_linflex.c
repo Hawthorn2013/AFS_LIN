@@ -14,7 +14,7 @@
  *
  * Tool Version           : 1.4.1.6
  *
- * file                   : main.c
+ * file                   : intc_linflex.c
  *
  * Target Compiler        : Codewarrior
  *
@@ -26,12 +26,14 @@
  *
  *
  *
- * Brief Description      : This file contains main() function call.
+ * Brief Description      : This  file contains  the interrupt service routine  for the Linflex
  *
  ******************************************************************************** 
  *
- * Detail Description     : This file contains main() routine which calls system
- *                         initialization routine and interrupt enable routine if defined.
+ * Detail Description     : This file is generated when Linflex function is
+ *                         defined in INTC peripheral.This file contains the
+ *                         Interrupt handlers routines for Linflex. In Interrupt
+ *                         handlers routine respective flags are cleared.
  *
  ******************************************************************************** 
  *
@@ -42,32 +44,26 @@
  
 /********************  Dependent Include files here **********************/
 
-#include "rappid_ref.h"
-#include "rappid_utils.h"
-#include "sys_init.h"
-
-/**********************  Function Prototype here *************************/
-
-void main(void);
+#include "intc_linflex.h"
 
 
-/*********************  Initialization Function(s) ************************/
+/************************* INTERRUPT HANDLERS ************************/
 
-void main(void)
+void INTC_UART0_RX (void)
 {
-
-/* ----------------------------------------------------------- */
-/*	             System Initialization Function                  */
-/* ----------------------------------------------------------- */
-   sys_init_fnc();
-/********* Enable External Interrupt *********/
-   EnableExternalInterrupts();
-   while(1)
-   {
-
-   }
+    LINFLEX_0.LINSR.R = 0xF2FF;
+    LINFLEX_0.UARTSR.R = 0x00000004;
 
 }
+
+
+void INTC_UART2_RX (void)
+{
+    LINFLEX_2.LINSR.R = 0xF2FF;
+    LINFLEX_2.UARTSR.R = 0x00000004;
+
+}
+
 
  
 /*

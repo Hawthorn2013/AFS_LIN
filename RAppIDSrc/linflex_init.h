@@ -14,7 +14,7 @@
  *
  * Tool Version           : 1.4.1.6
  *
- * file                   : main.c
+ * file                   : linflex_init.h
  *
  * Target Compiler        : Codewarrior
  *
@@ -26,50 +26,29 @@
  *
  *
  *
- * Brief Description      : This file contains main() function call.
+ * Brief Description      : This file initializes LINFlex registers
  *
- ******************************************************************************** 
- *
- * Detail Description     : This file contains main() routine which calls system
- *                         initialization routine and interrupt enable routine if defined.
- *
- ******************************************************************************** 
  *
  *######################################################################
 */
 
- 
- 
+#ifndef  _LINFLEX_INIT_H
+#define  _LINFLEX_INIT_H
 /********************  Dependent Include files here **********************/
 
-#include "rappid_ref.h"
-#include "rappid_utils.h"
-#include "sys_init.h"
+#include "jdp.h"
 
 /**********************  Function Prototype here *************************/
 
-void main(void);
+void linflex_init_fnc(void);
+void linflex0_init_fnc(void);
+void linflex1_init_fnc(void);
+void linflex2_init_fnc(void);
+void linflex3_init_fnc(void);
 
 
-/*********************  Initialization Function(s) ************************/
+#endif  /*_LINFLEX_INIT_H*/
 
-void main(void)
-{
-
-/* ----------------------------------------------------------- */
-/*	             System Initialization Function                  */
-/* ----------------------------------------------------------- */
-   sys_init_fnc();
-/********* Enable External Interrupt *********/
-   EnableExternalInterrupts();
-   while(1)
-   {
-
-   }
-
-}
-
- 
 /*
  *######################################################################
  *                           End of File

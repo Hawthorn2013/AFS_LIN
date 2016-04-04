@@ -14,7 +14,7 @@
  *
  * Tool Version           : 1.4.1.6
  *
- * file                   : sys_init.h
+ * file                   : intc_init.h
  *
  * Target Compiler        : Codewarrior
  *
@@ -26,31 +26,27 @@
  *
  *
  *
- * Brief Description      : This file contains system initialization code
+ * Brief Description      : This file contains the function prototype for intc source file.
  *
  *
  *######################################################################
 */
 
-#ifndef  _SYS_INIT_H
-#define  _SYS_INIT_H
+#ifndef  _INTC_INIT_H
+#define  _INTC_INIT_H
 /********************  Dependent Include files here **********************/
 
-#include "intc_init.h"
-#include "sysclk_init.h"
-#include "linflex_init.h"
-#include "msr_init.h"
-#include "siu_init.h"
-#include "rgm_init.h"
-#include "flash_init.h"
+#include "jdp.h"
+
+
 
 /**********************  Function Prototype here *************************/
 
-void sys_init_fnc (void);
-extern void IVPRInitialize(void);
+extern void INTC_InitINTCInterrupts (void);
+extern void en_int_fnc (vuint32_t priority);
 
 
-#endif  /*_SYS_INIT_H*/
+#endif  /*_INTC_INIT_H*/
 
 /*
  *######################################################################

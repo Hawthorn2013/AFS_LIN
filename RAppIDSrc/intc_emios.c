@@ -14,7 +14,7 @@
  *
  * Tool Version           : 1.4.1.6
  *
- * file                   : main.c
+ * file                   : intc_emios.c
  *
  * Target Compiler        : Codewarrior
  *
@@ -26,12 +26,14 @@
  *
  *
  *
- * Brief Description      : This file contains main() function call.
+ * Brief Description      : This  file contains  the interrupt service routine  for the EMIOS
  *
  ******************************************************************************** 
  *
- * Detail Description     : This file contains main() routine which calls system
- *                         initialization routine and interrupt enable routine if defined.
+ * Detail Description     : This file is generated when EMIOS function is
+ *                         defined in INTC peripheral.This file contains the
+ *                         Interrupt handlers routines for EMIOS. In Interrupt
+ *                         handlers routine respective flags are cleared.
  *
  ******************************************************************************** 
  *
@@ -42,32 +44,34 @@
  
 /********************  Dependent Include files here **********************/
 
-#include "rappid_ref.h"
-#include "rappid_utils.h"
-#include "sys_init.h"
-
-/**********************  Function Prototype here *************************/
-
-void main(void);
+#include "intc_emios.h"
 
 
-/*********************  Initialization Function(s) ************************/
+/************************* INTERRUPT HANDLERS ************************/
 
-void main(void)
+void INTC_eMIOS_0_F0_F1 (void)
 {
-
-/* ----------------------------------------------------------- */
-/*	             System Initialization Function                  */
-/* ----------------------------------------------------------- */
-   sys_init_fnc();
-/********* Enable External Interrupt *********/
-   EnableExternalInterrupts();
-   while(1)
-   {
-
-   }
+    EMIOS_0.CH[0].CSR.B.FLAG = 1;
+    EMIOS_0.CH[1].CSR.B.FLAG = 1;
 
 }
+
+
+void INTC_eMIOS_0_F24_F25 (void)
+{
+    EMIOS_0.CH[24].CSR.B.FLAG = 1;
+    EMIOS_0.CH[25].CSR.B.FLAG = 1;
+
+}
+
+
+void INTC_eMIOS_0_F26_F27 (void)
+{
+    EMIOS_0.CH[26].CSR.B.FLAG = 1;
+    EMIOS_0.CH[27].CSR.B.FLAG = 1;
+
+}
+
 
  
 /*

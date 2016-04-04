@@ -14,7 +14,7 @@
  *
  * Tool Version           : 1.4.1.6
  *
- * file                   : main.c
+ * file                   : intc_emios.h
  *
  * Target Compiler        : Codewarrior
  *
@@ -26,50 +26,27 @@
  *
  *
  *
- * Brief Description      : This file contains main() function call.
+ * Brief Description      : This  file contains  the interrupt service routine  for the EMIOS
  *
- ******************************************************************************** 
- *
- * Detail Description     : This file contains main() routine which calls system
- *                         initialization routine and interrupt enable routine if defined.
- *
- ******************************************************************************** 
  *
  *######################################################################
 */
 
- 
- 
+#ifndef  _INTC_EMIOS_H
+#define  _INTC_EMIOS_H
 /********************  Dependent Include files here **********************/
 
-#include "rappid_ref.h"
-#include "rappid_utils.h"
-#include "sys_init.h"
+#include "jdp.h"
 
 /**********************  Function Prototype here *************************/
 
-void main(void);
+void INTC_eMIOS_0_F0_F1(void);
+void INTC_eMIOS_0_F24_F25(void);
+void INTC_eMIOS_0_F26_F27(void);
 
 
-/*********************  Initialization Function(s) ************************/
+#endif  /*_INTC_EMIOS_H*/
 
-void main(void)
-{
-
-/* ----------------------------------------------------------- */
-/*	             System Initialization Function                  */
-/* ----------------------------------------------------------- */
-   sys_init_fnc();
-/********* Enable External Interrupt *********/
-   EnableExternalInterrupts();
-   while(1)
-   {
-
-   }
-
-}
-
- 
 /*
  *######################################################################
  *                           End of File
