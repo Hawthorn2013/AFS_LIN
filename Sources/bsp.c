@@ -67,9 +67,9 @@ int LIN_TX(int id, int len, const uint8_t *data) {
 	LINFLEX_0 .BIDR.B.DFL = len - 1;
 	LINFLEX_0 .BIDR.B.DIR = 1;
 	LINFLEX_0 .BIDR.B.ID = id;
-	LINFLEX_0 .LINCR2.B.HTRQ = 1;
 	LINFLEX_0_INTC_TXI_triggered = 0;
 	LINFLEX_0_INTC_ERR_triggered = 0;
+	LINFLEX_0 .LINCR2.B.HTRQ = 1;
 	while (!(LINFLEX_0_INTC_TXI_triggered | LINFLEX_0_INTC_ERR_triggered))
 		;
 	if (LINFLEX_0_INTC_TXI_triggered) {
