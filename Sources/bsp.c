@@ -80,3 +80,48 @@ int LIN_TX(int id, int len, const uint8_t *data) {
 		return 3;
 	}
 }
+
+int LIN_RX(int id, int len, uint8_t *data) {
+	if (id < 0 || id > 0x3D) {
+		return 1;
+	} else if (len < 0 || len > 8) {
+		return 2;
+	}
+	LINFLEX_0 .BIDR.B.CCS = 1;
+	LINFLEX_0 .BIDR.B.DFL = len - 1;
+	LINFLEX_0 .BIDR.B.DIR = 0;
+	LINFLEX_0 .BIDR.B.ID = id;
+	LINFLEX_0_INTC_RXI_triggered = 0;
+	LINFLEX_0_INTC_ERR_triggered = 0;
+	LINFLEX_0 .LINCR2.B.HTRQ = 1;
+	while (!(LINFLEX_0_INTC_RXI_triggered | LINFLEX_0_INTC_ERR_triggered))
+		;
+	if (LINFLEX_0_INTC_RXI_triggered) {
+		LINFLEX_0_INTC_RXI_triggered = 0;
+		switch (len) {
+		uint32_t bdrm = LINFLEX_0 .BDRM.R;
+		uint32_t bdrl = LINFLEX_0 .BDRL.R;
+	case 8:
+		data[7] = (uint8_t) (bdrm >> 24);
+	case 7:
+		data[6] = (uint8_t) (bdrm >> 16);
+	case 6:
+		data[5] = (uint8_t) (bdrm >> 8);
+	case 5:
+		data[4] = (uint8_t) (bdrm >> 0);
+	case 4:
+		data[3] = (uint8_t) (bdrl >> 24);
+	case 3:
+		data[2] = (uint8_t) (bdrl >> 16);
+	case 2:
+		data[1] = (uint8_t) (bdrl >> 8);
+	case 1:
+		data[0] = (uint8_t) (bdrl >> 0);
+		break;
+		}
+		return 0;
+	} else if (LINFLEX_0_INTC_ERR_triggered) {
+		LINFLEX_0_INTC_ERR_triggered = 0;
+		return 3;
+	}
+}
