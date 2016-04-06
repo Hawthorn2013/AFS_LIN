@@ -413,6 +413,12 @@ void mode_entry_init_fnc(void)
         /* Low-Power Mode Peripheral Configuration: Low-Power Mode Configuration 0    */
         /* RUN Mode Peripheral Configuration: RUN Mode Configuration 0    */
 
+    /* eMIOS_1 Control */
+    ME.PCTL[73].R = 0x00;
+        /* Peripheral Operation in Debug mode: Disabled    */
+        /* Low-Power Mode Peripheral Configuration: Low-Power Mode Configuration 0    */
+        /* RUN Mode Peripheral Configuration: RUN Mode Configuration 0    */
+
     /* RTC/API Control */
     ME.PCTL[91].R = 0x00;
         /* Peripheral Operation in Debug mode: Disabled    */

@@ -216,20 +216,20 @@ uint32_t IntcIsrVectorTable[] = {
     (uint32_t)&INTC_eMIOS_0_F26_F27,    /* Vector - 154    INTC_eMIOS_0_F26_F27*/
     (uint32_t)&interrupt_handler,    /* Vector - 155    Reserved */
     (uint32_t)&interrupt_handler,    /* Vector - 156    Reserved */
-    (uint32_t)&interrupt_handler,    /* Vector - 157    Reserved */
-    (uint32_t)&interrupt_handler,    /* Vector - 158    Reserved */
-    (uint32_t)&interrupt_handler,    /* Vector - 159    Reserved */
-    (uint32_t)&interrupt_handler,    /* Vector - 160    Reserved */
-    (uint32_t)&interrupt_handler,    /* Vector - 161    Reserved */
-    (uint32_t)&interrupt_handler,    /* Vector - 162    Reserved */
-    (uint32_t)&interrupt_handler,    /* Vector - 163    Reserved */
-    (uint32_t)&interrupt_handler,    /* Vector - 164    Reserved */
-    (uint32_t)&interrupt_handler,    /* Vector - 165    Reserved */
-    (uint32_t)&interrupt_handler,    /* Vector - 166    Reserved */
-    (uint32_t)&interrupt_handler,    /* Vector - 167    Reserved */
-    (uint32_t)&interrupt_handler,    /* Vector - 168    Reserved */
-    (uint32_t)&interrupt_handler,    /* Vector - 169    Reserved */
-    (uint32_t)&interrupt_handler,    /* Vector - 170    Reserved */
+    (uint32_t)&interrupt_handler,    /* Vector - 157    interrupt_handler*/
+    (uint32_t)&interrupt_handler,    /* Vector - 158    interrupt_handler*/
+    (uint32_t)&interrupt_handler,    /* Vector - 159    interrupt_handler*/
+    (uint32_t)&interrupt_handler,    /* Vector - 160    interrupt_handler*/
+    (uint32_t)&interrupt_handler,    /* Vector - 161    interrupt_handler*/
+    (uint32_t)&interrupt_handler,    /* Vector - 162    interrupt_handler*/
+    (uint32_t)&interrupt_handler,    /* Vector - 163    interrupt_handler*/
+    (uint32_t)&interrupt_handler,    /* Vector - 164    interrupt_handler*/
+    (uint32_t)&interrupt_handler,    /* Vector - 165    interrupt_handler*/
+    (uint32_t)&interrupt_handler,    /* Vector - 166    interrupt_handler*/
+    (uint32_t)&interrupt_handler,    /* Vector - 167    interrupt_handler*/
+    (uint32_t)&interrupt_handler,    /* Vector - 168    interrupt_handler*/
+    (uint32_t)&interrupt_handler,    /* Vector - 169    interrupt_handler*/
+    (uint32_t)&interrupt_handler,    /* Vector - 170    interrupt_handler*/
     (uint32_t)&interrupt_handler,    /* Vector - 171    Reserved */
     (uint32_t)&interrupt_handler,    /* Vector - 172    Reserved */
     (uint32_t)&interrupt_handler,    /* Vector - 173    Reserved */

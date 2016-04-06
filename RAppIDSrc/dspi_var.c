@@ -14,7 +14,7 @@
  *
  * Tool Version           : 1.4.1.6
  *
- * file                   : siu_init.h
+ * file                   : dspi_var.c
  *
  * Target Compiler        : Codewarrior
  *
@@ -26,36 +26,38 @@
  *
  *
  *
- * Brief Description      : This File contains functions declaration of SIU code file
+ * Brief Description      : This File contains variable definition for Transmit
+ *                          and Receive queues
  *
+ ******************************************************************************** 
+ *
+ * Detail Description     : This File contains variables which contain Transmission
+ *                         and reception data for respective DSPI module.
+ *
+ ******************************************************************************** 
  *
  *######################################################################
 */
 
-#ifndef  _SIU_INIT_H
-#define  _SIU_INIT_H
+ 
+ 
 /********************  Dependent Include files here **********************/
 
-#include "jdp.h"
-
-void siu_init_fnc(void);
-void siu_portA_init_fnc(void);
-void siu_portB_init_fnc(void);
-void siu_portC_init_fnc(void);
-void siu_portD_init_fnc(void);
-void siu_portE_init_fnc(void);
-void siu_portF_init_fnc(void);
-void siu_portG_init_fnc(void);
-void siu_portH_init_fnc(void);
-void siu_general_init_fnc(void);
-void siu_parallel_port_init_fnc(void);
-void siu_unused_pins_init_fnc(void);
-void siu_psmi_init_fnc(void);
+#include "typedefs.h"
 
 
 
-#endif  /*_SIU_INIT_H*/
+vuint32_t DSPI0_TxQUE[1]= {0U};    /* Transmit Queue DSPI_0 Variable */
+vuint32_t DSPI1_TxQUE[1]= {0U };    /* Transmit Queue DSPI_1 Variable */
+vuint32_t DSPI2_TxQUE[1]= {0U};    /* Transmit Queue DSPI_2 Variable */
 
+vuint16_t DSPI0_RxQUE[1]= {0U };    /* Receive Queue DSPI_0 Variable */
+vuint16_t DSPI1_RxQUE[1]= {0U };    /* Receive Queue DSPI_1 Variable */
+vuint16_t DSPI2_RxQUE[1]= {0U };    /* Receive Queue DSPI_2 Variable */
+
+
+
+ 
 /*
  *######################################################################
  *                           End of File

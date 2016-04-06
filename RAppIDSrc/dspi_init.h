@@ -14,7 +14,7 @@
  *
  * Tool Version           : 1.4.1.6
  *
- * file                   : siu_init.h
+ * file                   : dspi_init.h
  *
  * Target Compiler        : Codewarrior
  *
@@ -26,35 +26,27 @@
  *
  *
  *
- * Brief Description      : This File contains functions declaration of SIU code file
+ * Brief Description      : This File contains functions declaration of DSPI code file
  *
  *
  *######################################################################
 */
 
-#ifndef  _SIU_INIT_H
-#define  _SIU_INIT_H
+#ifndef  _DSPI_INIT_H
+#define  _DSPI_INIT_H
 /********************  Dependent Include files here **********************/
 
 #include "jdp.h"
 
-void siu_init_fnc(void);
-void siu_portA_init_fnc(void);
-void siu_portB_init_fnc(void);
-void siu_portC_init_fnc(void);
-void siu_portD_init_fnc(void);
-void siu_portE_init_fnc(void);
-void siu_portF_init_fnc(void);
-void siu_portG_init_fnc(void);
-void siu_portH_init_fnc(void);
-void siu_general_init_fnc(void);
-void siu_parallel_port_init_fnc(void);
-void siu_unused_pins_init_fnc(void);
-void siu_psmi_init_fnc(void);
+/**********************  Function Prototype here *************************/
+
+void dspi_init_fnc(void);
+void dspi0_init_fnc(void);
+void dspi1_init_fnc(void);
+void dspi2_init_fnc(void);
 
 
-
-#endif  /*_SIU_INIT_H*/
+#endif  /*_DSPI_INIT_H*/
 
 /*
  *######################################################################

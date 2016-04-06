@@ -40,6 +40,7 @@
 #include "sysclk_init.h"
 #include "linflex_init.h"
 #include "msr_init.h"
+#include "dspi_init.h"
 #include "siu_init.h"
 #include "rgm_init.h"
 #include "flash_init.h"

@@ -14,7 +14,7 @@
  *
  * Tool Version           : 1.4.1.6
  *
- * file                   : siu_init.h
+ * file                   : dspi_var.h
  *
  * Target Compiler        : Codewarrior
  *
@@ -26,35 +26,40 @@
  *
  *
  *
- * Brief Description      : This File contains functions declaration of SIU code file
+ * Brief Description      : This File contains Transmit and Receive variables declaration
  *
  *
  *######################################################################
 */
 
-#ifndef  _SIU_INIT_H
-#define  _SIU_INIT_H
+#ifndef  _DSPI_VAR_H
+#define  _DSPI_VAR_H
 /********************  Dependent Include files here **********************/
 
 #include "jdp.h"
 
-void siu_init_fnc(void);
-void siu_portA_init_fnc(void);
-void siu_portB_init_fnc(void);
-void siu_portC_init_fnc(void);
-void siu_portD_init_fnc(void);
-void siu_portE_init_fnc(void);
-void siu_portF_init_fnc(void);
-void siu_portG_init_fnc(void);
-void siu_portH_init_fnc(void);
-void siu_general_init_fnc(void);
-void siu_parallel_port_init_fnc(void);
-void siu_unused_pins_init_fnc(void);
-void siu_psmi_init_fnc(void);
 
 
 
-#endif  /*_SIU_INIT_H*/
+#define DSPI_0_PUSHR 0xFFF90034
+#define DSPI_1_PUSHR 0xFFF94034
+#define DSPI_2_PUSHR 0xFFF98034
+#define DSPI_0_POPR  0xFFF9003A
+#define DSPI_1_POPR  0xFFF9403A
+#define DSPI_2_POPR  0xFFF9803A
+
+
+extern vuint32_t DSPI0_TxQUE[1];    /* Transmit Queue DSPI_0 Variable */
+extern vuint32_t DSPI1_TxQUE[1];    /* Transmit Queue DSPI_1 Variable */
+extern vuint32_t DSPI2_TxQUE[1];    /* Transmit Queue DSPI_2 Variable */
+
+extern vuint16_t DSPI0_RxQUE[1];    /* Receive Queue DSPI_0 Variable */
+extern vuint16_t DSPI1_RxQUE[1];    /* Receive Queue DSPI_1 Variable */
+extern vuint16_t DSPI2_RxQUE[1];    /* Receive Queue DSPI_2 Variable */
+
+
+
+#endif  /*_DSPI_VAR_H*/
 
 /*
  *######################################################################
