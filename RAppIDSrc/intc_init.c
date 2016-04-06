@@ -253,8 +253,8 @@ void INTC_InitINTCInterrupts (void)
 /* -------------------------------------------------------------------*/
 /*	           Priority Set Register for interrupt vector 59          */
 /* -------------------------------------------------------------------*/
-    INTC.PSR[59].R = 0x00;
-    /* PIT Channel 0 Priority is: 0        */
+    INTC.PSR[59].R = 0x07;
+    /* PIT Channel 0 Priority is: 7        */
 
 /* -------------------------------------------------------------------*/
 /*	           Priority Set Register for interrupt vector 60          */

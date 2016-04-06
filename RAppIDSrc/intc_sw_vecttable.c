@@ -46,6 +46,7 @@
 #include "rappid_ref.h"
 #include "jdp.h"
 #include "intc_emios.h"
+#include "intc_pit.h"
 #include "intc_linflex.h"
 
 /**********************  Function Prototype here *************************/
@@ -118,7 +119,7 @@ uint32_t IntcIsrVectorTable[] = {
     (uint32_t)&interrupt_handler,    /* Vector - 56    interrupt_handler*/
     (uint32_t)&interrupt_handler,    /* Vector - 57    interrupt_handler*/
     (uint32_t)&interrupt_handler,    /* Vector - 58    Reserved */
-    (uint32_t)&interrupt_handler,    /* Vector - 59    interrupt_handler*/
+    (uint32_t)&INTC_PIT_0,    /* Vector - 59    INTC_PIT_0*/
     (uint32_t)&interrupt_handler,    /* Vector - 60    interrupt_handler*/
     (uint32_t)&interrupt_handler,    /* Vector - 61    interrupt_handler*/
     (uint32_t)&interrupt_handler,    /* Vector - 62    interrupt_handler*/
