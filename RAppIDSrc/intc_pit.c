@@ -45,6 +45,7 @@
 /********************  Dependent Include files here **********************/
 
 #include "intc_pit.h"
+void PIT_0_triggered(void);
 
 
 /************************* INTERRUPT HANDLERS ************************/
@@ -52,7 +53,7 @@
 void INTC_PIT_0 (void)
 {
     PIT.CH[0].TFLG.R = 0x00000001;
-
+    PIT_0_triggered();
 }
 
 

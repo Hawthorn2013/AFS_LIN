@@ -8,11 +8,14 @@
 #include "../RAppIDSrc/rappid_ref.h"
 #include "../RAppIDSrc/sys_init.h"
 #include "bsp.h"
+#include "dspi_var.h"
 
 volatile int LINFLEX_0_INTC_TXI_triggered = 0;
 volatile int LINFLEX_0_INTC_RXI_triggered = 0;
 volatile int LINFLEX_0_INTC_ERR_triggered = 0;
 volatile uint32_t LINFLEX_0_SR = 0x00000000;
+
+void PIT_0_triggered(void);
 
 void Test_LIN(void) {
 	LINFLEX_0 .BDRM.R = 0xFF1055FF; /* Load buffer data most significant bytes */
@@ -74,9 +77,13 @@ int LIN_TX(int id, int len, const uint8_t *data) {
 		;
 	if (LINFLEX_0_INTC_TXI_triggered) {
 		LINFLEX_0_INTC_TXI_triggered = 0;
+		LED2 = 0;
+		LED3 = 1;
 		return 0;
 	} else if (LINFLEX_0_INTC_ERR_triggered) {
 		LINFLEX_0_INTC_ERR_triggered = 0;
+		LED2 = 1;
+		LED3 = 0;
 		return 3;
 	}
 }
@@ -124,4 +131,24 @@ int LIN_RX(int id, int len, uint8_t *data) {
 		LINFLEX_0_INTC_ERR_triggered = 0;
 		return 3;
 	}
+}
+
+void PIT_0_triggered(void) {
+	static uint32_t cnt_33905 = 0;
+	if (cnt_33905 >= 19) {
+		volatile uint16_t rev_33905 = 0x0000;
+		cnt_33905 = 0;
+		rev_33905 = Swap_data_with_33905(0x5A00);
+	}
+	cnt_33905++;
+}
+
+uint16_t Swap_data_with_33905(uint16_t data) {
+	uint16_t rev;
+	DSPI_1 .PUSHR.R = (DSPI1_TxQUE[0] & 0xFFFF0000) | data;
+	while (!DSPI_1 .SR.B.TCF)
+		;
+	DSPI_1 .SR.B.TCF = 1;
+	rev = (uint16_t)DSPI_1.POPR.B.RXDATA;
+	return rev;
 }
