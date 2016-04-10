@@ -16,6 +16,7 @@ volatile int LINFLEX_0_INTC_ERR_triggered = 0;
 volatile uint32_t LINFLEX_0_SR = 0x00000000;
 
 void PIT_0_triggered(void);
+void INIT_33905(void);
 
 void Test_LIN(void) {
 	LINFLEX_0 .BDRM.R = 0xFF1055FF; /* Load buffer data most significant bytes */
@@ -152,3 +153,14 @@ uint16_t Swap_data_with_33905(uint16_t data) {
 	rev = (uint16_t)DSPI_1.POPR.B.RXDATA;
 	return rev;
 }
+
+void INIT_33905(void){
+	Swap_data_with_33905(0x5E18);/*write CAN-5V Regulator*/
+	Swap_data_with_33905(0x4E28);/*LIN_INIT*/
+	Swap_data_with_33905(0x66C0);/*write LIN1*/
+	Swap_data_with_33905(0x2700);/*read LIN1*/
+	Swap_data_with_33905(0x68C0);/*write LIN2*/
+	Swap_data_with_33905(0x2900);/*read LIN2*/
+}
+
+

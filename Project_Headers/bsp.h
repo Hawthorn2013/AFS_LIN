@@ -19,6 +19,7 @@
 void Test_LIN(void);
 int LIN_TX(int id, int len, const uint8_t *data);
 int LIN_RX(int id, int len, uint8_t *data);
+void INIT_33905(void);
 
 void Delay_us(uint32_t us);
 void Delay_ms(uint32_t ms);
