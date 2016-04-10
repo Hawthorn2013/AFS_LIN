@@ -2,10 +2,15 @@
 #include "../RAppIDSrc/rappid_utils.h"
 #include "../RAppIDSrc/sys_init.h"
 #include "bsp.h"
-
-int main(void) {
+    int main(void) {
 	volatile int i = 0;
 	sys_init_fnc();
+	//Delay_ms(50000);
+    Swap_data_with_33905(0x5E18);
+    
+   //Swap_data_with_33905(0x4E28);
+	Swap_data_with_33905(0x66C0); /*write LIN1*/
+	Swap_data_with_33905(0x68C0); /*write LIN2*/
 	EnableExternalInterrupts();
 	/* Loop forever */
 	for (;;) {
