@@ -8,6 +8,8 @@
 #ifndef AFS_H_
 #define AFS_H_
 
+#include "../RAppIDSrc/jdp.h"
+
 #define AFS_LIN_FEAME_ID_AFL_MOTOR_CMD (0x20)
 #define AFS_LIN_FEAME_ID_DHL_MOTOR_CMD (0x23)
 #define AFS_LIN_FEAME_ID_LEFT_SLAVE_NODE_QUERY (0x24)
@@ -67,5 +69,10 @@ typedef union {
 		uint32_t :8;
 	} B;
 } FRAME_MOTOR_FREQUENCY_CONFIG;
+
+
+extern void AFS_Set_LIN_Interface(int LIN_TX(int id, int len, const uint8_t *data),
+		int LIN_RX(int id, int len, uint8_t *data));
+extern void AFS_AFL_Init_Test(void);
 
 #endif /* AFS_H_ */

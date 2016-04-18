@@ -8,6 +8,8 @@
 #ifndef BSP_H_
 #define BSP_H_
 
+#include "../RAppIDSrc/jdp.h"
+
 //Define LED
 #define LED1 (SIU .GPDO[68].B.PDO)
 #define LED2 (SIU .GPDO[69].B.PDO)
