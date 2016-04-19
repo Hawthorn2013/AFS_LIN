@@ -8,7 +8,8 @@
 #include "../RAppIDSrc/rappid_ref.h"
 #include "../RAppIDSrc/sys_init.h"
 #include "bsp.h"
-#include "dspi_var.h"
+#include "../RAppIDSrc/dspi_var.h"
+#include <stdio.h>
 
 volatile int LINFLEX_0_INTC_TXI_triggered = 0;
 volatile int LINFLEX_0_INTC_RXI_triggered = 0;
@@ -173,4 +174,30 @@ void UART_Send_Byte(uint8_t data) {
 	while (!LINFLEX_1 .UARTSR.B.DTF)
 		;
 	LINFLEX_1 .UARTSR.B.DTF = 1;
+}
+
+void UART_Send_Array(const uint8_t array[], int len) {
+	int cnt = 0;
+	if (len < 0) {
+		return;
+	}
+	for (cnt = 0; cnt < len; cnt++) {
+		LINFLEX_1 .BDRL.B.DATA0 = array[cnt];
+		while (!LINFLEX_1 .UARTSR.B.DTF)
+			;
+		LINFLEX_1 .UARTSR.B.DTF = 1;
+	}
+}
+
+int32_t ReadUARTN(void* bytes, unsigned long limit) {
+	return 0;
+}
+
+int32_t WriteUARTN(const void* bytes, unsigned short length) {
+	UART_Send_Array(bytes, length);
+	return 0;
+}
+
+int32_t InitializeUART(int32_t baudRate) {
+	return 0;
 }

@@ -28,5 +28,9 @@ void Delay_ms(uint32_t ms);
 
 uint16_t Swap_data_with_33905(uint16_t data);
 void UART_Send_Byte(uint8_t data);
+void UART_Send_Array(const uint8_t array[], int len);
+int32_t ReadUARTN(void* bytes, unsigned long limit);
+int32_t WriteUARTN(const void* bytes, unsigned short length);
+int32_t InitializeUART(int32_t baudRate);
 
 #endif /* BSP_H_ */

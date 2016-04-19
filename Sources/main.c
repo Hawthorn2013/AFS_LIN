@@ -3,6 +3,7 @@
 #include "../RAppIDSrc/sys_init.h"
 #include "bsp.h"
 #include "afs.h"
+#include <stdio.h>
 
 int main(void) {
 	volatile int i = 0;
