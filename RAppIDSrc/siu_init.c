@@ -589,9 +589,9 @@ void siu_portC_init_fnc(void)
     /* ----------------------------------------------------------- */
     /*      Pad Configuration Register PCR[38]  TXD_1_PC6 (36) */
     /* ----------------------------------------------------------- */
-       SIU.PCR[38].R = 0x0001;
-             /*	Selected Function : PC6          */
-             /*	Output Buffers : Disabled         */
+       SIU.PCR[38].R = 0x0601;
+             /*	Selected Function : TXD_1          */
+             /*	Output Buffers : Enabled          */
              /*	Input Buffers : Disabled          */
              /*	Output Drain : Disabled           */
              /*	Slew Rate Control : Minimum       */
@@ -602,10 +602,10 @@ void siu_portC_init_fnc(void)
     /* ----------------------------------------------------------- */
     /*      Pad Configuration Register PCR[39]  RXD_1_PC7 (37) */
     /* ----------------------------------------------------------- */
-       SIU.PCR[39].R = 0x0001;
-             /*	Selected Function : PC7          */
+       SIU.PCR[39].R = 0x0101;
+             /*	Selected Function : PC7 I          */
              /*	Output Buffers : Disabled         */
-             /*	Input Buffers : Disabled          */
+             /*	Input Buffers : Enabled           */
              /*	Output Drain : Disabled           */
              /*	Slew Rate Control : Minimum       */
              /*	Weak Pull Up/Down : Disabled      */

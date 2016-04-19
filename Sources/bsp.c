@@ -150,11 +150,11 @@ uint16_t Swap_data_with_33905(uint16_t data) {
 	while (!DSPI_1 .SR.B.TCF)
 		;
 	DSPI_1 .SR.B.TCF = 1;
-	rev = (uint16_t)DSPI_1.POPR.B.RXDATA;
+	rev = (uint16_t) DSPI_1 .POPR.B.RXDATA;
 	return rev;
 }
 
-void INIT_33905(void){
+void INIT_33905(void) {
 	Swap_data_with_33905(0x5E18);/*write CAN-5V Regulator*/
 	Swap_data_with_33905(0x4E28);/*LIN_INIT*/
 	Swap_data_with_33905(0x66C0);/*write LIN1*/
@@ -163,4 +163,9 @@ void INIT_33905(void){
 	Swap_data_with_33905(0x2900);/*read LIN2*/
 }
 
-
+void UART_Send_Byte(uint8_t data) {
+	LINFLEX_1 .BDRL.B.DATA0 = data;
+	while (!LINFLEX_1 .UARTSR.B.DTF)
+		;
+	LINFLEX_1 .UARTSR.B.DTF = 1;
+}

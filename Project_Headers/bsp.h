@@ -27,5 +27,6 @@ void Delay_us(uint32_t us);
 void Delay_ms(uint32_t ms);
 
 uint16_t Swap_data_with_33905(uint16_t data);
+void UART_Send_Byte(uint8_t data);
 
 #endif /* BSP_H_ */

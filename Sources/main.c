@@ -15,7 +15,7 @@ int main(void) {
 		i++;
 		Delay_ms(500);
 		LED1 = ~LED1;
-		AFS_AFL_Init_Test();
+		UART_Send_Byte(0xab);
 	}
 }
 
