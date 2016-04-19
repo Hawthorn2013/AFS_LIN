@@ -51,12 +51,14 @@ extern volatile int LINFLEX_0_INTC_TXI_triggered;
 extern volatile int LINFLEX_0_INTC_RXI_triggered;
 extern volatile int LINFLEX_0_INTC_ERR_triggered;
 extern volatile uint32_t LINFLEX_0_SR;
+extern volatile uint32_t LINFLEX_0_ESR;
 
 /************************* INTERRUPT HANDLERS ************************/
 
 void INTC_LINFLEX_0_RXI (void)
 {
 	LINFLEX_0_SR = LINFLEX_0.LINSR.R;
+	LINFLEX_0_ESR = LINFLEX_0.LINESR.R;
 	LINFLEX_0_INTC_RXI_triggered = 1;
     LINFLEX_0.LINSR.R = 0xF2FF;
     LINFLEX_0.UARTSR.R = 0x00000004;
@@ -67,6 +69,7 @@ void INTC_LINFLEX_0_RXI (void)
 void INTC_LINFLEX_0_TXI (void)
 {
 	LINFLEX_0_SR = LINFLEX_0.LINSR.R;
+	LINFLEX_0_ESR = LINFLEX_0.LINESR.R;
 	LINFLEX_0_INTC_TXI_triggered = 1;
     LINFLEX_0.LINSR.R = 0xF2FF;
     LINFLEX_0.UARTSR.R = 0x00000002;
@@ -77,6 +80,7 @@ void INTC_LINFLEX_0_TXI (void)
 void INTC_LINFLEX_0_ERR (void)
 {
 	LINFLEX_0_SR = LINFLEX_0.LINSR.R;
+	LINFLEX_0_ESR = LINFLEX_0.LINESR.R;
 	LINFLEX_0_INTC_ERR_triggered = 1;
     LINFLEX_0.LINESR.R = 0xFF81;
     LINFLEX_0.UARTSR.R = 0xFFE7;

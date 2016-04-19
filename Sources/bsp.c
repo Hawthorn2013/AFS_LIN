@@ -14,6 +14,7 @@ volatile int LINFLEX_0_INTC_TXI_triggered = 0;
 volatile int LINFLEX_0_INTC_RXI_triggered = 0;
 volatile int LINFLEX_0_INTC_ERR_triggered = 0;
 volatile uint32_t LINFLEX_0_SR = 0x00000000;
+volatile uint32_t LINFLEX_0_ESR = 0x00000000;
 
 void PIT_0_triggered(void);
 void INIT_33905(void);
@@ -106,6 +107,8 @@ int LIN_RX(int id, int len, uint8_t *data) {
 		;
 	if (LINFLEX_0_INTC_RXI_triggered) {
 		LINFLEX_0_INTC_RXI_triggered = 0;
+		LED2 = 0;
+		LED3 = 1;
 		switch (len) {
 		uint32_t bdrm = LINFLEX_0 .BDRM.R;
 		uint32_t bdrl = LINFLEX_0 .BDRL.R;
@@ -130,6 +133,8 @@ int LIN_RX(int id, int len, uint8_t *data) {
 		return 0;
 	} else if (LINFLEX_0_INTC_ERR_triggered) {
 		LINFLEX_0_INTC_ERR_triggered = 0;
+		LED2 = 1;
+		LED3 = 0;
 		return 3;
 	}
 }
