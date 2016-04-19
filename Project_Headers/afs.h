@@ -74,5 +74,7 @@ typedef union {
 extern void AFS_Set_LIN_Interface(int LIN_TX(int id, int len, const uint8_t *data),
 		int LIN_RX(int id, int len, uint8_t *data));
 extern void AFS_AFL_Init_Test(void);
+extern void AFS_Send_AFL_Motor_CMD_Frame(uint8_t status1, uint8_t pos_l, uint8_t pos_r,
+		uint8_t status2_l, uint8_t status2_r);
 
 #endif /* AFS_H_ */
