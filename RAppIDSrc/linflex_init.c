@@ -87,14 +87,14 @@ void linflex0_init_fnc (void)
 /*----------------------------------------------------------- */
 /*        LIN integer baudrate register  (LINFLEX_0_LINIBRR)        */
 /*----------------------------------------------------------- */
-    LINFLEX_0.LINIBRR.R = 0x0033;
-        /* Integer Baud Rate Factor: 51*/
+    LINFLEX_0.LINIBRR.R = 0x0068;
+        /* Integer Baud Rate Factor: 104*/
 
 /*----------------------------------------------------------- */
 /*        LIN fractional baudrate register  (LINFLEX_0_LINFBRR)        */
 /*----------------------------------------------------------- */
-    LINFLEX_0.LINFBRR.R = 0x000F;
-        /* Fractional Baud Rate Factor: 15*/
+    LINFLEX_0.LINFBRR.R = 0x0003;
+        /* Fractional Baud Rate Factor: 3*/
 
 /*----------------------------------------------------------- */
 /*        Identifier filter mode register  (LINFLEX_0_IFMR)         */

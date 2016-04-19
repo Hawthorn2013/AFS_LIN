@@ -10,6 +10,9 @@ int main(void) {
 	INIT_33905();
 	EnableExternalInterrupts();
 	AFS_Set_LIN_Interface(LIN_TX, LIN_RX);
+	AFS_Send_AFL_Motor_CMD_Frame(0x02, 0x46, 0x96, 0x07, 0x07);
+	AFS_Send_AFL_Motor_CMD_Frame(0x02, 0x46, 0x96, 0x04, 0x04);
+	AFS_Send_AFL_Motor_CMD_Frame(0x02, 0x46, 0x96, 0x02, 0x02);
 	/* Loop forever */
 	for (;;) {
 		i++;
