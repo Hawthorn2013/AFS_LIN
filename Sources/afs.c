@@ -22,40 +22,36 @@ void AFS_Set_LIN_Interface(int LIN_TX(int id, int len, const uint8_t *data),
 
 void AFS_AFL_Init_Test(void) {
 	uint8_t data_r[4] = { 0x00, 0x00, 0x00, 0x00 };
+	int i = 0;
 	printf("Into AFS_AFL_Init_Test.\n");
 	AFS_Send_AFL_Motor_CMD_Frame(0x02, 0x46, 0x96, 0x07, 0x07);
 	AFS_LIN_RX(0x24, 4, data_r);
-	printf("data_r = 0x%2.2X%2.2X%2.2X%2.2X\n", data_r[0], data_r[1], data_r[2], data_r[3]);
+	printf("data_r = 0x%2.2X%2.2X%2.2X%2.2X\n", data_r[0], data_r[1], data_r[2],
+			data_r[3]);
 	AFS_Send_AFL_Motor_CMD_Frame(0x02, 0x46, 0x96, 0x04, 0x04);
 	AFS_LIN_RX(0x24, 4, data_r);
-	printf("data_r = 0x%2.2X%2.2X%2.2X%2.2X\n", data_r[0], data_r[1], data_r[2], data_r[3]);
-	AFS_Send_AFL_Motor_CMD_Frame(0x02, 0x46, 0x96, 0x02, 0x02);
+	printf("data_r = 0x%2.2X%2.2X%2.2X%2.2X\n", data_r[0], data_r[1], data_r[2],
+			data_r[3]);
+	AFS_Send_AFL_Motor_CMD_Frame(0x03, 0x46, 0x96, 0x02, 0x02);
 	AFS_LIN_RX(0x24, 4, data_r);
-	printf("data_r = 0x%2.2X%2.2X%2.2X%2.2X\n", data_r[0], data_r[1], data_r[2], data_r[3]);
-	afs_afl_status_feedback = data_r[2];
-	switch (afs_afl_status_feedback) {
-	case 0x01:
-	case 0x04:
-		AFS_Send_AFL_Motor_CMD_Frame(0x03, 0x46, 0x96, 0x03, 0x03);
-		break;
-	case 0x02:
-	case 0x05:
-		AFS_Send_AFL_Motor_CMD_Frame(0x02, 0x46, 0x96, 0x05, 0x05);
-		break;
-	case 0x06:
-		AFS_Send_AFL_Motor_CMD_Frame(0x03, 0x46, 0x96, 0x03, 0x03);
-		break;
-	case 0x07:
-		AFS_Send_AFL_Motor_CMD_Frame(0x02, 0x46, 0x96, 0x05, 0x05);
-		break;
-	case 0x08:
-		break;
-	case 0x09:
-		AFS_Send_AFL_Motor_CMD_Frame(0x02, 0x46, 0x96, 0x04, 0x04);
-		break;
-	default:
-		break;
-	}
+	printf("data_r = 0x%2.2X%2.2X%2.2X%2.2X\n", data_r[0], data_r[1], data_r[2],
+			data_r[3]);
+	AFS_Send_AFL_Motor_CMD_Frame(0x02, 0x46, 0x96, 0x03, 0x03);
+	AFS_LIN_RX(0x24, 4, data_r);
+	printf("data_r = 0x%2.2X%2.2X%2.2X%2.2X\n", data_r[0], data_r[1], data_r[2],
+			data_r[3]);
+	AFS_Send_AFL_Motor_CMD_Frame(0x03, 0x46, 0x96, 0x05, 0x05);
+	AFS_LIN_RX(0x24, 4, data_r);
+	printf("data_r = 0x%2.2X%2.2X%2.2X%2.2X\n", data_r[0], data_r[1], data_r[2],
+			data_r[3]);
+	AFS_Send_AFL_Motor_CMD_Frame(0x03, 0x46, 0x96, 0x05, 0x05);
+	AFS_LIN_RX(0x24, 4, data_r);
+	printf("data_r = 0x%2.2X%2.2X%2.2X%2.2X\n", data_r[0], data_r[1], data_r[2],
+			data_r[3]);
+	AFS_Send_AFL_Motor_CMD_Frame(0x02, 0x46, 0x96, 0x03, 0x03);
+	AFS_LIN_RX(0x24, 4, data_r);
+	printf("data_r = 0x%2.2X%2.2X%2.2X%2.2X\n", data_r[0], data_r[1], data_r[2],
+			data_r[3]);
 }
 
 void AFS_Send_AFL_Motor_CMD_Frame(uint8_t status1, uint8_t pos_l, uint8_t pos_r,
